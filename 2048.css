@@ -1,0 +1,109 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #faf8ef;
+}
+
+.container {
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.score-container {
+    display: inline-block;
+    background: #bbada0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 24px;
+}
+
+.game-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: #bbada0;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.grid-cell {
+    width: 100%;
+    height: 100%;
+    background: #cdc1b4;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    font-weight: bold;
+    color: #776e65;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.tile-2 { background: #eee4da; }
+.tile-4 { background: #ede0c8; }
+.tile-8 { background: #f2b179; color: #f9f6f2; }
+.tile-16 { background: #f59563; color: #f9f6f2; }
+.tile-32 { background: #f67c5f; color: #f9f6f2; }
+.tile-64 { background: #f65e3b; color: #f9f6f2; }
+.tile-128 { background: #edcf72; color: #f9f6f2; }
+.tile-256 { background: #edcc61; color: #f9f6f2; }
+.tile-512 { background: #edc850; color: #f9f6f2; }
+.tile-1024 { background: #edc53f; color: #f9f6f2; }
+.tile-2048 { background: #edc22e; color: #f9f6f2; }
+
+.tile-moved {
+    transition: background-color 0.2s ease-in-out;
+    animation: move 0.2s ease-in-out;
+}
+
+@keyframes move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(var(--x), var(--y)); }
+}
+
+.tile-merged {
+    animation: merge 0.2s ease-in-out;
+}
+
+@keyframes merge {
+    0% { transform: scale(0.5); }
+    50% { transform: scale(0.7); }
+    100% { transform: scale(1); }
+}
+
+@keyframes new-tile {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.new-tile {
+    animation: new-tile 0.8s ease-in-out;
+}
+
